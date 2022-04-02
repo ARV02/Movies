@@ -16,9 +16,11 @@ data class VideosModel(
     @SerializedName("size")
     val size: Int,
     @SerializedName("type")
-    val type: String,
+    val type: String = "Trailer",
+    @SerializedName("official")
+    val official: Boolean = true,
     @SerializedName("id")
-    val id: Int
+    val id: String
 )
 
 data class VideosResult(

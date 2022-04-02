@@ -6,6 +6,7 @@ plugins {
 }
 
 def tmDb_key = '"' + TMDB_KEY + '"'
+def googleKey = '"' + GOOGLE_KEY + '"'
 def STRING = 'String'
 
 android {
@@ -21,6 +22,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         each {
             type -> type.buildConfigField STRING, 'TMDB_CREDENTIAL', tmDb_key
+                type.buildConfigField STRING, 'GOOGLE_CREDENTIAL', googleKey
         }
     }
 
@@ -94,4 +96,8 @@ dependencies {
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
+    //Youtube
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1'
 }

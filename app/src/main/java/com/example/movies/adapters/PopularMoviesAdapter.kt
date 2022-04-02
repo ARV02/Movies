@@ -26,6 +26,7 @@ class PopularMoviesAdapter(private var popularMoviesList: List<Movie>,
             intent.putExtra("title", items.title)
             intent.putExtra("overview",items.overview)
             intent.putExtra("release_date", items.release_date)
+            intent.putExtra("id", items.movieId)
             context.startActivity(intent)
         }
     }

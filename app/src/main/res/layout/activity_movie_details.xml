@@ -52,6 +52,10 @@
                     android:layout_marginStart="4dp"/>
             </LinearLayout>
 
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/video"
+                android:layout_width="300dp"
+                android:layout_height="180dp"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

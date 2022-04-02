@@ -4,6 +4,7 @@ import com.example.movies.data.models.MoviesPageModel
 import com.example.movies.data.models.NowPlayingResponse
 import com.example.movies.data.models.VideosResult
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiInterface {
@@ -21,6 +22,6 @@ interface ApiInterface {
         @Query("language")language: String = "en-US"
     ):NowPlayingResponse
     
-    @GET("movie/{id}/video")
-    suspend fun getVideos(@Query("id")id: Int): VideosResult
+    @GET("movie/{id}/videos")
+    suspend fun getVideos(@Path("id")id: Int): VideosResult
 }
