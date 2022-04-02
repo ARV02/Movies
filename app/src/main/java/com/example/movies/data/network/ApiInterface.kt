@@ -1,8 +1,8 @@
 package com.example.movies.data.network
 
-import com.example.movies.data.models.MovieModel
 import com.example.movies.data.models.MoviesPageModel
-import retrofit2.Response
+import com.example.movies.data.models.NowPlayingResponse
+import com.example.movies.data.models.VideosResult
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -19,5 +19,8 @@ interface ApiInterface {
     suspend fun getMoviesNowPlaying(
         @Query("page")page: Int,
         @Query("language")language: String = "en-US"
-    ):MoviesPageModel
+    ):NowPlayingResponse
+    
+    @GET("movie/{id}/video")
+    suspend fun getVideos(@Query("id")id: Int): VideosResult
 }

@@ -6,18 +6,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movies.R
-import com.example.movies.domain.model.Movie
+import com.example.movies.domain.model.NowPlaying
 import com.example.movies.ui.view.MovieDetailsActivity
 
-class PopularMoviesAdapter(private var popularMoviesList: List<Movie>,
-                           private val context: Context): RecyclerView.Adapter<ViewHolderPopularMovie>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPopularMovie {
+class NowPlayingAdapter(private var nowPlaying: List<NowPlaying>,
+                        private val context: Context
+): RecyclerView.Adapter<ViewHolderNowPlaying>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderNowPlaying {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ViewHolderPopularMovie(layoutInflater.inflate(R.layout.movie_popular_item, parent, false))
+        return ViewHolderNowPlaying(layoutInflater.inflate(R.layout.movie_popular_item, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ViewHolderPopularMovie, position: Int) {
-        val items = popularMoviesList[position]
+    override fun onBindViewHolder(holder: ViewHolderNowPlaying, position: Int) {
+        val items = nowPlaying[position]
         holder.bind(items)
 
         holder.itemView.setOnClickListener {
@@ -30,5 +31,5 @@ class PopularMoviesAdapter(private var popularMoviesList: List<Movie>,
         }
     }
 
-    override fun getItemCount(): Int = popularMoviesList.size
+    override fun getItemCount(): Int = nowPlaying.size
 }

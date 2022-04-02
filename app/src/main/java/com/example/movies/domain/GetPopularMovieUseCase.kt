@@ -1,14 +1,20 @@
 package com.example.movies.domain
 
-import android.util.Log
-import com.example.movies.data.models.MovieModel
-import com.example.movies.data.models.MoviesPageModel
+import com.example.movies.data.database.entities.toDatabase
 import com.example.movies.data.repositories.PopularMovieRepository
 import com.example.movies.domain.model.Movie
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class GetPopularMovieUseCase @Inject constructor(private val popularMovieRepository: PopularMovieRepository) {
 
-    suspend operator fun invoke(page: Int): MoviesPageModel = popularMovieRepository.popularMovie(page)
+    suspend operator fun invoke(page: Int): List<Movie> {
+        val movies = popularMovieRepository.getPopularMovieFromApi(page)
+        return if(movies.isNotEmpty()) {
+            popularMovieRepository.clearMovies()
+            popularMovieRepository.insertPopularMovies(movies.map { it.toDatabase() })
+            movies
+        } else {
+            popularMovieRepository.getPopularMoviesFromDB()
+        }
+    }
 }
