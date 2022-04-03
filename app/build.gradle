@@ -10,6 +10,9 @@ def googleKey = '"' + GOOGLE_KEY + '"'
 def STRING = 'String'
 
 android {
+    lintOptions {
+        checkReleaseBuilds false
+    }
     compileSdk 31
 
     defaultConfig {
