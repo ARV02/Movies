@@ -3,18 +3,10 @@ package com.example.movies.ui.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.movies.BuildConfig
-import com.example.movies.R
 import com.example.movies.databinding.ActivityMovieDetailsBinding
 import com.example.movies.ui.viewModel.VideoViewModel
-import com.google.android.youtube.player.YouTubeBaseActivity
-import com.google.android.youtube.player.YouTubeInitializationResult
-import com.google.android.youtube.player.YouTubePlayer
-import com.google.android.youtube.player.YouTubePlayerSupportFragment
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -61,7 +53,7 @@ class MovieDetailsActivity : AppCompatActivity() {
                 }
             })
         }
-        508947
+
         videoViewModel.getVideo(id)
     }
 }

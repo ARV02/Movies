@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         adapter = PopularMoviesAdapter(moviesList, this)
         nowAdapter = NowPlayingAdapter(nowPlayingList, this)
         binding.recyclerViewMovies.adapter = adapter
+        viewModel.popularMovies()
         initRecyclerView()
         filterChip()
     }
